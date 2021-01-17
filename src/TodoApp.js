@@ -1,6 +1,5 @@
 import { Filter } from './componets/Filter';
 import { Header } from './componets/Header';
-import { TodoList } from './componets/TodoList';
 import AddTodoContainer from './container/AddTodoContainer';
 import TodoListContainer from './container/TodoListContainer';
 
