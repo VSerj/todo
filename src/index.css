@@ -170,13 +170,16 @@ button + button {
   padding: 1rem 0;
 }
 
-.completed {
-  text-decoration: line-through;
-}
-
 .todo-item__text {
   font-size: 2rem;
   flex: 0 0 80%;
+  overflow-wrap: anywhere;
+  color: rgb(44, 44, 44);
+}
+
+.completed .todo-item__text {
+  text-decoration: line-through;
+  color: rgb(187, 187, 187);
 }
 
 .todo-item__time {
@@ -184,19 +187,65 @@ button + button {
   padding: 0 1rem;
   color: rgb(163, 163, 163);
 }
+.completed .todo-item__time {
+  color: rgb(202, 202, 202);
+}
 
 .check {
+  position: relative;
   border: 2px solid rgb(87, 102, 236);
   min-width: 17px;
-  height: 17px;
+  min-height: 17px;
+}
+
+.check:hover {
+  border: 3px solid rgb(87, 102, 236);
+}
+
+.completed .check {
+  border: 2px solid rgb(187, 187, 187);
+}
+
+.completed .check::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  min-width: 2px;
+  min-height: 21px;
+  background-color: rgb(187, 187, 187);
+  transform: translate(8px, -9px) rotate(14deg);
+  content: '';
+}
+
+.completed .check::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  min-width: 2px;
+  min-height: 18px;
+  border-radius: 1px;
+  background-color: rgb(187, 187, 187);
+  transform: translate(2px, -5px) rotate(-21deg);
+  content: '';
 }
 
 .delete {
+  margin: 0 0 0 0.2rem;
+  padding: 0 0.6rem;
   font-size: 2rem;
   font-weight: 600;
   color: rgb(255, 94, 146);
+  border-radius: 2px;
+  transition: all 0.3s;
 }
 
+.delete:hover {
+  background-color: rgba(255, 167, 193, 0.4);
+}
+
+.completed .delete {
+  color: rgb(211, 167, 181);
+}
 /* clear-container */
 .clear-container {
   text-align: right;
