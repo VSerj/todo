@@ -1,21 +1,17 @@
+import { Filter } from './componets/Filter';
 import { Header } from './componets/Header';
 import { TodoList } from './componets/TodoList';
-import { AddTodo } from './componets/AddTodo';
+import AddTodoContainer from './container/AddTodoContainer';
+import TodoListContainer from './container/TodoListContainer';
 
 export const TodoApp = () => {
   return (
     <>
       <Header title="TODO" />
       <main className="todo-body">
-        <div className="filter-container">
-          <button className="filter-btn filter-btn--all">All: 5</button>
-          <button className="filter-btn filter-btn--completed">
-            Completed: 1
-          </button>
-          <button className="filter-btn filter-btn--pending">Pending: 3</button>
-        </div>
-        <AddTodo />
-        <TodoList />
+        <Filter />
+        <AddTodoContainer />
+        <TodoListContainer />
         <div className="clear-container">
           <button>Delete all</button>
           <button>Delete completed</button>

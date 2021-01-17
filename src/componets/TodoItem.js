@@ -1,4 +1,4 @@
-const TodoItem = ({ text, completed }) => {
+export const TodoItem = ({ text, completed }) => {
   return (
     <li className={`todo-item ${completed && 'completed'}`}>
       <p className="todo-item__text">{text}</p>

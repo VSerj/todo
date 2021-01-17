@@ -1,12 +1,12 @@
-export const TodoList = props => {
-  const listItem = (
-    <li className="todo-item">
-      <p className="todo-item__text">Test item</p>
-      <time className="todo-item__time">{new Date().toLocaleDateString()}</time>
-      <button className="todo-item__btn check"></button>
-      <button className="todo-item__btn delete">X</button>
-    </li>
-  );
+import { TodoItem } from './TodoItem';
 
-  return <ul className="todo-list">{listItem}</ul>;
+export const TodoList = ({ todos }) => {
+  const isTodosExist = todos && todos.length > 0;
+  const listItems = isTodosExist
+    ? todos.map(({ id, text, completed }) => (
+        <TodoItem key={`todo-${id}`} text={text} completed={completed} />
+      ))
+    : 'Todo list is empty';
+
+  return <ul className="todo-list">{listItems}</ul>;
 };
