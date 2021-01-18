@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+
 import { TodoList } from '../componets/TodoList';
 import { deleteTodo, completedTodo } from '../store/todos/todosSlice';
 

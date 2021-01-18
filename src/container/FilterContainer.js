@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+
 import { Filter } from '../componets/Filter';
 import { changeFilter } from '../store/filter/filterSlice';
 

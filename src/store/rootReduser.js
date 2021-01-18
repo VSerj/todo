@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import { filterReducer } from './filter/filterSlice';
 import { todosReducer } from './todos/todosSlice';
 
