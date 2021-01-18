@@ -1,8 +1,9 @@
 // import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { TodoApp } from './TodoApp';
-import './index.css';
 import { Provider } from 'react-redux';
+
+import './index.css';
+import { TodoApp } from './TodoApp';
 import store from './store/store';
 
 ReactDOM.render(

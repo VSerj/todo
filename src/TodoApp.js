@@ -3,7 +3,6 @@ import AddTodoContainer from './container/AddTodoContainer';
 import BottomClearBntContainer from './container/BottomClearBntContainer';
 import FilterContainer from './container/FilterContainer';
 import TodoListContainer from './container/TodoListContainer';
-// import BottomClearBtnContainer from './container/BottomClearBtnContainer';
 
 export const TodoApp = () => {
   return (
