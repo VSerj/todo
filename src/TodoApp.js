@@ -1,7 +1,9 @@
 import { Header } from './componets/Header';
 import AddTodoContainer from './container/AddTodoContainer';
+import BottomClearBntContainer from './container/BottomClearBntContainer';
 import FilterContainer from './container/FilterContainer';
 import TodoListContainer from './container/TodoListContainer';
+// import BottomClearBtnContainer from './container/BottomClearBtnContainer';
 
 export const TodoApp = () => {
   return (
@@ -11,10 +13,7 @@ export const TodoApp = () => {
         <FilterContainer />
         <AddTodoContainer />
         <TodoListContainer />
-        <div className="clear-container">
-          <button>Delete all</button>
-          <button>Delete completed</button>
-        </div>
+        <BottomClearBntContainer />
       </main>
     </>
   );

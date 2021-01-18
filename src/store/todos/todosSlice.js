@@ -1,6 +1,8 @@
 const TODOS_TODO_ADD = 'todos/todoAdd';
 const TODOS_TODO_COMPLETED = 'todos/todoCompleted';
 const TODOS_TODO_DEL = 'todos/todoDel';
+const TODOS_ALL_TODO_DEL = 'todos/todoDelAll';
+const TODOS_COMPLETED_TODO_DEL = 'todos/todoDelCompleted';
 
 let idTodoCounter = 1;
 
@@ -27,16 +29,32 @@ export const deleteTodo = id => ({
   payload: id,
 });
 
+export const deleteAllTodo = () => ({
+  type: TODOS_ALL_TODO_DEL,
+});
+
+export const deleteCompletedTodo = () => ({
+  type: TODOS_COMPLETED_TODO_DEL,
+});
+
 export const todosReducer = (state = todosState, action) => {
   if (action.type === TODOS_TODO_ADD) {
     return [
       ...state,
       {
-        id: idTodoCounter++, //temp id
+        id: idTodoCounter++,
         text: action.payload,
         completed: false,
       },
     ];
+  }
+
+  if (action.type === TODOS_ALL_TODO_DEL) {
+    return [];
+  }
+
+  if (action.type === TODOS_COMPLETED_TODO_DEL) {
+    return [...state].filter(todo => todo.completed === false);
   }
 
   if (action.type === TODOS_TODO_COMPLETED) {
