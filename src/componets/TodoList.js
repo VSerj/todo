@@ -1,9 +1,15 @@
 import { TodoItem } from './TodoItem';
 
-export const TodoList = ({ todos, deleteTodo, completedTodo }) => {
+export const TodoList = ({ todos, deleteTodo, completedTodo, filter }) => {
   const isTodosExist = todos && todos.length > 0;
+  const filtredTodos =
+    filter === 'all'
+      ? todos
+      : filter === 'completed'
+      ? todos.filter(todo => todo.completed === true)
+      : todos.filter(todo => todo.completed === false);
   const listItems = isTodosExist
-    ? todos.map(({ id, text, completed }) => (
+    ? filtredTodos.map(({ id, text, completed }) => (
         <TodoItem
           key={`todo-${id}`}
           text={text}

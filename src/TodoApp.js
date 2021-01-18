@@ -1,6 +1,6 @@
-import { Filter } from './componets/Filter';
 import { Header } from './componets/Header';
 import AddTodoContainer from './container/AddTodoContainer';
+import FilterContainer from './container/FilterContainer';
 import TodoListContainer from './container/TodoListContainer';
 
 export const TodoApp = () => {
@@ -8,7 +8,7 @@ export const TodoApp = () => {
     <>
       <Header title="TODO" />
       <main className="todo-body">
-        <Filter />
+        <FilterContainer />
         <AddTodoContainer />
         <TodoListContainer />
         <div className="clear-container">

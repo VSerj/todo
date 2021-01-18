@@ -4,8 +4,8 @@ import { deleteTodo, completedTodo } from '../store/todos/todosSlice';
 
 export default connect(
   state => {
-    const { todos } = state;
-    return { todos };
+    const { todos, filter } = state;
+    return { todos, filter };
   },
   { deleteTodo, completedTodo }
 )(TodoList);
