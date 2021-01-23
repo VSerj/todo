@@ -1,8 +1,10 @@
-const TODOS_TODO_ADD = 'todos/todoAdd';
-const TODOS_TODO_COMPLETED = 'todos/todoCompleted';
-const TODOS_TODO_DEL = 'todos/todoDel';
-const TODOS_ALL_TODO_DEL = 'todos/todoDelAll';
-const TODOS_COMPLETED_TODO_DEL = 'todos/todoDelCompleted';
+import {
+  TODOS_ALL_TODO_DEL,
+  TODOS_COMPLETED_TODO_DEL,
+  TODOS_TODO_ADD,
+  TODOS_TODO_COMPLETED,
+  TODOS_TODO_DEL,
+} from '../constants';
 
 let idTodoCounter = 1;
 
@@ -13,29 +15,6 @@ const todosState = [
     completed: false,
   },
 ];
-
-export const addTodo = text => ({
-  type: TODOS_TODO_ADD,
-  payload: text,
-});
-
-export const completedTodo = id => ({
-  type: TODOS_TODO_COMPLETED,
-  payload: id,
-});
-
-export const deleteTodo = id => ({
-  type: TODOS_TODO_DEL,
-  payload: id,
-});
-
-export const deleteAllTodo = () => ({
-  type: TODOS_ALL_TODO_DEL,
-});
-
-export const deleteCompletedTodo = () => ({
-  type: TODOS_COMPLETED_TODO_DEL,
-});
 
 export const todosReducer = (state = todosState, action) => {
   if (action.type === TODOS_TODO_ADD) {

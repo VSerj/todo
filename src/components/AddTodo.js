@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-export const AddTodo = ({ addTodo }) => {
+import { addTodo } from '../store/action-creators/todosActions';
+
+export const AddTodo = () => {
   const [text, setText] = useState('');
+  const dispatch = useDispatch();
 
   const handleAddTodo = text => {
     if (text.length < 3) return;
-    addTodo(text);
+    dispatch(addTodo(text));
     setText('');
   };
 

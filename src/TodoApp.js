@@ -1,7 +1,7 @@
-import AddTodoContainer from './container/AddTodoContainer';
-import BottomClearBntContainer from './container/BottomClearBntContainer';
-import FilterContainer from './container/FilterContainer';
-import TodoListContainer from './container/TodoListContainer';
+import { AddTodo } from './components/AddTodo';
+import { BottomClearBtn } from './components/BottomClearBtn';
+import { Filter } from './components/Filter';
+import { TodoList } from './components/TodoList';
 
 export const TodoApp = () => {
   return (
@@ -10,10 +10,10 @@ export const TodoApp = () => {
         <h1>TODO</h1>
       </header>
       <main className="todo-body">
-        <FilterContainer />
-        <AddTodoContainer />
-        <TodoListContainer />
-        <BottomClearBntContainer />
+        <Filter />
+        <AddTodo />
+        <TodoList />
+        <BottomClearBtn />
       </main>
     </>
   );

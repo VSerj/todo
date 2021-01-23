@@ -111,7 +111,7 @@ button + button {
   margin-left: 1rem;
 }
 
-/* filter btn */
+/* filter */
 .filter-container {
   display: flex;
   justify-content: center;
@@ -157,7 +157,8 @@ button + button {
   box-shadow: 0 0 5px rgb(173, 103, 219);
   color: rgb(255, 255, 255);
 }
-/* input-field */
+
+/* add todo */
 .input-container {
   position: relative;
   padding: 0 0 2rem 0;
@@ -176,7 +177,7 @@ button + button {
   color: rgb(87, 102, 236);
 }
 
-/* todo-list */
+/* todo list */
 .todo-list {
   padding: 0 2rem;
 }
@@ -195,6 +196,7 @@ button + button {
   color: rgb(44, 44, 44);
 }
 
+/* todo btns */
 .completed .todo-item__text {
   text-decoration: line-through;
   color: rgb(187, 187, 187);
@@ -205,15 +207,21 @@ button + button {
   padding: 0 1rem;
   color: rgb(163, 163, 163);
 }
+
 .completed .todo-item__time {
   color: rgb(202, 202, 202);
 }
 
 .check {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 2px solid rgb(87, 102, 236);
-  min-width: 17px;
-  min-height: 17px;
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s;
+  font-size: 1.5rem;
 }
 
 .check:hover {
@@ -224,7 +232,11 @@ button + button {
   border: 2px solid rgb(187, 187, 187);
 }
 
-.completed .check::before {
+.completed .check:hover {
+  border: 2px solid rgb(144, 153, 236);
+}
+
+/* .completed .check::before {
   display: block;
   position: absolute;
   top: 0;
@@ -245,14 +257,12 @@ button + button {
   background-color: rgb(187, 187, 187);
   transform: translate(2px, -5px) rotate(-21deg);
   content: '';
-}
+} */
 
 .delete {
   margin: 0 0 0 0.2rem;
-  padding: 0 0.6rem;
-  font-size: 2rem;
-  font-weight: 600;
-  color: rgb(255, 94, 146);
+  /* padding: 0 0.6rem; */
+  font-size: 1.8rem;
   border-radius: 2px;
   transition: all 0.3s;
 }
@@ -261,10 +271,7 @@ button + button {
   background-color: rgba(255, 167, 193, 0.4);
 }
 
-.completed .delete {
-  color: rgb(211, 167, 181);
-}
-/* clear-container */
+/* clear */
 .clear-container {
   padding: 2.5rem 0 0;
   text-align: center;
