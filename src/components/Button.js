@@ -1,12 +1,10 @@
 import React from 'react';
 
-export const Button = React.memo(
-  ({ className, handleAction, children }) => {
-    console.log(className);
-    return (
-      <button className={className} onClick={handleAction}>
-        {children}
-      </button>
-    );
-  }
-);
+export const Button = ({ className, onAction, children }) => {
+  // console.log(className);
+  return (
+    <button className={className} onClick={onAction}>
+      {children}
+    </button>
+  );
+};

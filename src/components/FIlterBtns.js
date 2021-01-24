@@ -1,21 +1,16 @@
-import { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useCallback, useMemo } from 'react';
+import { useDispatch } from 'react-redux';
 
-import {
-  getFilter,
-  getNumOfTodosForEveryFilter,
-} from '../store/selectors/selectors';
 import { changeFilter } from '../store/action-creators/filterActions';
 import { Button } from './Button';
 
-export const FilterBtns = ({ btns }) => {
+export const FilterBtns = ({
+  btns,
+  numOfTodosForEveryFilter,
+  currentFilter,
+}) => {
   const dispatch = useDispatch();
-  const handleChangeFilter = useCallback(
-    filter => dispatch(changeFilter(filter)),
-    [dispatch]
-  );
-  const currentFilter = useSelector(getFilter);
-  const numOfTodosForEveryFilter = useSelector(getNumOfTodosForEveryFilter);
+
   const createArrPropsForBtns = () => {
     return btns.map(btnsAssignment => {
       const contentText = `${btnsAssignment[0].toUpperCase()}${btnsAssignment.slice(
@@ -28,17 +23,26 @@ export const FilterBtns = ({ btns }) => {
         }`,
         contentText,
         numOfTodos: numOfTodosForEveryFilter[btnsAssignment],
+        handleFilterChange() {
+          dispatch(changeFilter(btnsAssignment));
+        },
       };
     });
   };
 
   return createArrPropsForBtns().map(
-    ({ btnsAssignment, className, contentText, numOfTodos }) => {
+    ({
+      btnsAssignment,
+      className,
+      contentText,
+      numOfTodos,
+      handleFilterChange,
+    }) => {
       return (
         <Button
           key={btnsAssignment}
           className={className}
-          handleAction={() => handleChangeFilter(btnsAssignment)}
+          onAction={handleFilterChange}
         >
           {' '}
           {contentText}

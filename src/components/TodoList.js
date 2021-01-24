@@ -1,15 +1,17 @@
-import { useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 
 import { getVisibleTodos } from '../store/selectors/selectors';
 import { TodoItem } from './TodoItem';
 
 export const TodoList = () => {
-  const todos = useSelector(getVisibleTodos);
-  const isTodosExist = todos && todos.length > 0;
+  const todos = useSelector(
+    getVisibleTodos
+    // shallowEqual
+  );
 
   return (
     <ul className="todo-list">
-      {isTodosExist
+      {todos.length > 0
         ? todos.map(({ id, text, completed }) => (
             <TodoItem
               key={`todo-${id}`}

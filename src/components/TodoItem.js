@@ -2,8 +2,8 @@ import { useDispatch } from 'react-redux';
 import React from 'react';
 
 import {
-  deleteTodoAction,
-  completedTodoAction,
+  deleteTodo,
+  completedTodo,
 } from '../store/action-creators/todosActions';
 import { Button } from './Button';
 
@@ -16,13 +16,13 @@ export const TodoItem = React.memo(({ text, completed, id }) => {
       <time className="todo-item__time">{new Date().toLocaleDateString()}</time>
       <Button
         className="todo-item__btn check"
-        onClick={() => dispatch(completedTodoAction(id))}
+        onAction={() => dispatch(completedTodo(id))}
       >
         {completed && '✔️'}
       </Button>
       <Button
         className="todo-item__btn delete"
-        onClick={() => dispatch(deleteTodoAction(id))}
+        onAction={() => dispatch(deleteTodo(id))}
       >
         {'\u274C'}
       </Button>

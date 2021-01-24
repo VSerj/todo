@@ -10,8 +10,8 @@ export const BottomClearBtn = () => {
   const dispatch = useDispatch();
   return (
     <div className="clear-container">
-      <Button handleAction={() => dispatch(deleteAllTodo())}>Delete all</Button>
-      <Button handleAction={() => dispatch(deleteCompletedTodo())}>
+      <Button onAction={() => dispatch(deleteAllTodo())}>Delete all</Button>
+      <Button onAction={() => dispatch(deleteCompletedTodo())}>
         Delete completed
       </Button>
     </div>

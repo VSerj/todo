@@ -5,8 +5,7 @@ import { ACTIVE_FILTER } from '../constants';
 export const getTodos = state => state.todos;
 export const getFilter = state => state.filter;
 export const getVisibleTodos = createSelector(
-  getTodos,
-  getFilter,
+  [getTodos, getFilter], // если getNumOfTodosForEveryFilter сработал, то для getTodos новый инстанс ?
   (todos, filter) => {
     switch (filter) {
       case ACTIVE_FILTER.all:
@@ -20,7 +19,7 @@ export const getVisibleTodos = createSelector(
     }
   }
 );
-export const getNumOfTodosForEveryFilter = createSelector(getTodos, todos => {
+export const getNumOfTodosForEveryFilter = createSelector([getTodos], todos => {
   return {
     [ACTIVE_FILTER.all]: todos.length,
     [ACTIVE_FILTER.completed]: todos.filter(todo => todo.completed).length,
