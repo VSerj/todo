@@ -10,7 +10,7 @@ export const TodoApp = () => {
         <h1>TODO</h1>
       </header>
       <main className="todo-body">
-        <Filter />
+        <Filter filterIds={['all', 'completed', 'pending']}/>
         <AddTodo />
         <TodoList />
         <BottomClearBtn />
