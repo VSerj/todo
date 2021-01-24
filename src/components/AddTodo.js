@@ -7,19 +7,19 @@ export const AddTodo = () => {
   const [text, setText] = useState('');
   const dispatch = useDispatch();
 
-  const handleAddTodo = text => {
+  const handleAddTodo = () => {
     if (text.length < 3) return;
     dispatch(addTodo(text));
     setText('');
   };
 
-  const handleClick = text => {
-    handleAddTodo(text);
+  const handleClick = () => {
+    handleAddTodo();
   };
 
-  const handleKeyDown = ({ key }, text) => {
+  const handleKeyDown = ({ key }) => {
     if (key !== 'Enter') return;
-    handleAddTodo(text);
+    handleAddTodo();
   };
 
   return (
@@ -30,9 +30,9 @@ export const AddTodo = () => {
         value={text}
         placeholder="Add todo"
         onChange={({ target }) => setText(target.value)}
-        onKeyDown={e => handleKeyDown(e, text)}
+        onKeyDown={handleKeyDown}
       />
-      <button className="input-filed__submit" onClick={() => handleClick(text)}>
+      <button className="input-filed__submit" onClick={handleClick}>
         Enter
       </button>
     </div>
