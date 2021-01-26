@@ -17,38 +17,42 @@ const todosState = [
 ];
 
 export const todosReducer = (state = todosState, action) => {
-  if (action.type === TODOS_TODO_ADD) {
-    return [
-      ...state,
-      {
-        id: idTodoCounter++,
-        text: action.payload,
-        completed: false,
-      },
-    ];
+  switch (action.type) {
+    case TODOS_TODO_ADD: {
+      return [
+        ...state,
+        {
+          id: idTodoCounter++,
+          text: action.payload,
+          completed: false,
+        },
+      ];
+    }
+    case TODOS_ALL_TODO_DEL: {
+      return state.length > 0 ? [] : state;
+    }
+    case TODOS_COMPLETED_TODO_DEL: {
+      // return state.filter(todo => !todo.completed);
+      return state.filter(todo => todo.completed).length > 0 // ist bad?
+        ? state.filter(todo => !todo.completed)
+        : state;
+    }
+    case TODOS_TODO_COMPLETED: {
+      return state.map(todo => {
+        if (todo.id !== action.payload) {
+          return todo;
+        }
+
+        return {
+          ...todo,
+          completed: !todo.completed,
+        };
+      });
+    }
+    case TODOS_TODO_DEL: {
+      return state.filter(todo => todo.id !== action.payload); // ist bad?
+    }
+    default:
+      return state;
   }
-
-  if (action.type === TODOS_ALL_TODO_DEL) {
-    return [];
-  }
-
-  if (action.type === TODOS_COMPLETED_TODO_DEL) {
-    return [...state].filter(todo => todo.completed === false);
-  }
-
-  if (action.type === TODOS_TODO_COMPLETED) {
-    return [...state].map(todo => {
-      if (todo.id === action.payload) {
-        todo.completed = !todo.completed;
-      }
-
-      return todo;
-    });
-  }
-
-  if (action.type === TODOS_TODO_DEL) {
-    return [...state].filter(todo => todo.id !== action.payload);
-  }
-
-  return state;
 };

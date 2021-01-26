@@ -1,6 +1,8 @@
 import { AddTodo } from './components/AddTodo';
 import { BottomClearBtn } from './components/BottomClearBtn';
-import { Filter } from './components/Filter';
+import { FilterBtnAll } from './components/FilterBtnAll';
+import { FilterBtnCompleted } from './components/FilterBtnCompleted';
+import { FilterBtnPending } from './components/FilterBtnPending';
 import { TodoList } from './components/TodoList';
 
 export const TodoApp = () => {
@@ -10,7 +12,11 @@ export const TodoApp = () => {
         <h1>TODO</h1>
       </header>
       <main className="todo-body">
-        <Filter filterIds={['all', 'completed', 'pending']}/>
+        <div className="filter-container">
+          <FilterBtnAll />
+          <FilterBtnCompleted />
+          <FilterBtnPending />
+        </div>
         <AddTodo />
         <TodoList />
         <BottomClearBtn />

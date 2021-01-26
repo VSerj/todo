@@ -8,6 +8,7 @@ import { Button } from './Button';
 
 export const BottomClearBtn = () => {
   const dispatch = useDispatch();
+
   return (
     <div className="clear-container">
       <Button onAction={() => dispatch(deleteAllTodo())}>Delete all</Button>

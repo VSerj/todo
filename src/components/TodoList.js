@@ -1,13 +1,10 @@
-import { shallowEqual, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { getVisibleTodos } from '../store/selectors/selectors';
 import { TodoItem } from './TodoItem';
 
 export const TodoList = () => {
-  const todos = useSelector(
-    getVisibleTodos
-    // shallowEqual
-  );
+  const todos = useSelector(getVisibleTodos);
 
   return (
     <ul className="todo-list">
