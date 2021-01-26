@@ -4,15 +4,17 @@ import {
   deleteAllTodo,
   deleteCompletedTodo,
 } from '../store/action-creators/todosActions';
+import { Button } from './Button';
 
 export const BottomClearBtn = () => {
   const dispatch = useDispatch();
+
   return (
     <div className="clear-container">
-      <button onClick={() => dispatch(deleteAllTodo())}>Delete all</button>
-      <button onClick={() => dispatch(deleteCompletedTodo())}>
+      <Button onAction={() => dispatch(deleteAllTodo())}>Delete all</Button>
+      <Button onAction={() => dispatch(deleteCompletedTodo())}>
         Delete completed
-      </button>
+      </Button>
     </div>
   );
 };

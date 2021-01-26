@@ -11,12 +11,12 @@ export const addTodo = text => ({
   payload: text,
 });
 
-export const completedTodoAction = id => ({
+export const completedTodo = id => ({
   type: TODOS_TODO_COMPLETED,
   payload: id,
 });
 
-export const deleteTodoAction = id => ({
+export const deleteTodo = id => ({
   type: TODOS_TODO_DEL,
   payload: id,
 });

@@ -2,15 +2,12 @@ import { createSelector } from 'reselect';
 
 import { ACTIVE_FILTER } from '../constants';
 
-export const getTodos = state => state.todos;
-export const getFilter = state => state.filter;
+export const getTodos = ({ todos }) => todos;
+export const getFilter = ({ filter }) => filter;
 export const getVisibleTodos = createSelector(
-  getTodos,
-  getFilter,
-  (todos, filter) => {
+  [getFilter, getTodos],
+  (filter, todos) => {
     switch (filter) {
-      case ACTIVE_FILTER.all:
-        return todos;
       case ACTIVE_FILTER.completed:
         return todos.filter(todo => todo.completed);
       case ACTIVE_FILTER.pending:
@@ -20,10 +17,17 @@ export const getVisibleTodos = createSelector(
     }
   }
 );
-export const getNumOfTodosForEveryFilter = createSelector(getTodos, todos => {
-  return {
-    [ACTIVE_FILTER.all]: todos.length,
-    [ACTIVE_FILTER.completed]: todos.filter(todo => todo.completed).length,
-    [ACTIVE_FILTER.pending]: todos.filter(todo => !todo.completed).length,
-  };
-});
+
+// export const getNumOfTodosForEveryFilter = createSelector([getTodos], todos => {
+//   return {
+//     [ACTIVE_FILTER.all]: todos.length,
+//     [ACTIVE_FILTER.completed]: todos.filter(todo => todo.completed).length,
+//     [ACTIVE_FILTER.pending]: todos.filter(todo => !todo.completed).length,
+//   };
+// });
+
+export const getNumOfAllTOdos = ({ todos }) => todos.length;
+export const getNumOfCompletedTOdos = ({ todos }) =>
+  todos.filter(todo => todo.completed).length;
+export const getNumOfPendingTOdos = ({ todos }) =>
+  todos.filter(todo => !todo.completed).length;

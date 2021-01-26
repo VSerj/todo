@@ -5,11 +5,10 @@ import { TodoItem } from './TodoItem';
 
 export const TodoList = () => {
   const todos = useSelector(getVisibleTodos);
-  const isTodosExist = todos && todos.length > 0;
 
   return (
     <ul className="todo-list">
-      {isTodosExist
+      {todos.length > 0
         ? todos.map(({ id, text, completed }) => (
             <TodoItem
               key={`todo-${id}`}
