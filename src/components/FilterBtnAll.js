@@ -4,6 +4,7 @@ import { ACTIVE_FILTER } from '../store/constants';
 import { changeFilter } from '../store/action-creators/filterActions';
 import { getFilter, getNumOfAllTOdos } from '../store/selectors/selectors';
 import { Button } from './Button';
+import { sortPendingFirst } from '../store/action-creators/todosActions';
 
 export const FilterBtnAll = () => {
   const dispatch = useDispatch();
@@ -11,14 +12,24 @@ export const FilterBtnAll = () => {
   const filter = useSelector(getFilter);
 
   return (
-    <Button
-      className={`filter-btn filter-btn--all ${
-        filter === ACTIVE_FILTER.all ? 'isActive' : ''
-      }`}
-      onAction={() => dispatch(changeFilter('all'))}
-    >
-      {'All: '}
-      {numOfAllTOdos}
-    </Button>
+    <div className="wrapper-filter-btn">
+      <Button
+        className={`filter-btn filter-btn--all ${
+          filter === ACTIVE_FILTER.all ? 'isActive' : ''
+        }`}
+        onAction={() => dispatch(changeFilter('all'))}
+      >
+        {'All: '}
+        {numOfAllTOdos}
+      </Button>
+      <Button
+        className={`sort-btn ${
+          filter !== ACTIVE_FILTER.all ? 'sort-btn--hide' : ''
+        }`}
+        onAction={() => dispatch(sortPendingFirst())}
+      >
+        pending first
+      </Button>
+    </div>
   );
 };

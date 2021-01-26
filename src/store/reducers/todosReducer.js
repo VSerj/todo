@@ -4,6 +4,7 @@ import {
   TODOS_TODO_ADD,
   TODOS_TODO_COMPLETED,
   TODOS_TODO_DEL,
+  TODOS_TODO_SORT_PENDING_FIRST,
 } from '../constants';
 
 let idTodoCounter = 1;
@@ -30,6 +31,11 @@ export const todosReducer = (state = todosState, action) => {
     }
     case TODOS_ALL_TODO_DEL: {
       return state.length > 0 ? [] : state;
+    }
+    case TODOS_TODO_SORT_PENDING_FIRST: {
+      return [...state].sort((todoA, todoB) => {
+        return todoA.completed - todoB.completed;
+      });
     }
     case TODOS_COMPLETED_TODO_DEL: {
       // return state.filter(todo => !todo.completed);
