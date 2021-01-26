@@ -4,6 +4,7 @@ import {
   TODOS_TODO_ADD,
   TODOS_TODO_COMPLETED,
   TODOS_TODO_DEL,
+  TODOS_TODO_SORT_PENDING_FIRST,
 } from '../constants';
 
 export const addTodo = text => ({
@@ -29,3 +30,6 @@ export const deleteCompletedTodo = () => ({
   type: TODOS_COMPLETED_TODO_DEL,
 });
 
+export const sortPendingFirst = () => ({
+  type: TODOS_TODO_SORT_PENDING_FIRST,
+});

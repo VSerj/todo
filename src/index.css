@@ -118,6 +118,11 @@ button + button {
   padding: 2rem;
 }
 
+.wrapper-filter-btn {
+  position: relative;
+  margin-right: 1rem;
+}
+
 .filter-btn {
   border: 2px solid black;
   border-radius: 3px;
@@ -126,8 +131,10 @@ button + button {
 }
 
 .filter-btn--all {
+  position: relative;
   border-color: rgb(87, 102, 236);
   color: rgb(105, 116, 221);
+  z-index: 1;
 }
 
 .filter-btn--all.isActive {
@@ -156,6 +163,34 @@ button + button {
   background-color: rgb(173, 103, 219);
   box-shadow: 0 0 5px rgb(173, 103, 219);
   color: rgb(255, 255, 255);
+}
+
+.sort-btn {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  margin: 0;
+  padding: 1.2rem 0.2rem 0 0.2rem;
+  border-radius: 0 0 12px 12px;
+  background-color: rgb(139, 168, 185);
+  color: rgb(255, 255, 255);
+  font-size: 1.1rem;
+  transition: background-color 0.3s, top 0.3s;
+}
+
+.sort-btn--hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.wrapper-filter-btn:hover .sort-btn {
+  top: 70%;
+  background-color: rgb(102, 191, 243);
+}
+
+.wrapper-filter-btn .sort-btn:hover {
+  background-color: rgb(154, 215, 250);
 }
 
 /* add todo */
@@ -235,29 +270,6 @@ button + button {
 .completed .check:hover {
   border: 2px solid rgb(144, 153, 236);
 }
-
-/* .completed .check::before {
-  display: block;
-  position: absolute;
-  top: 0;
-  min-width: 2px;
-  min-height: 21px;
-  background-color: rgb(187, 187, 187);
-  transform: translate(8px, -9px) rotate(14deg);
-  content: '';
-}
-
-.completed .check::after {
-  display: block;
-  position: absolute;
-  top: 0;
-  min-width: 2px;
-  min-height: 18px;
-  border-radius: 1px;
-  background-color: rgb(187, 187, 187);
-  transform: translate(2px, -5px) rotate(-21deg);
-  content: '';
-} */
 
 .delete {
   margin: 0 0 0 0.2rem;
