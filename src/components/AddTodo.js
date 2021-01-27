@@ -1,40 +1,37 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addTodo } from '../store/action-creators/todosActions';
+import { Button } from './Button';
 
 export const AddTodo = () => {
-  const [text, setText] = useState('');
+  const [textTodo, setTextTodo] = useState('');
   const dispatch = useDispatch();
 
-  const handleAddTodo = () => {
-    if (text.length < 3) return;
-    dispatch(addTodo(text));
-    setText('');
-  };
-
-  const handleClick = () => {
-    handleAddTodo();
-  };
-
-  const handleKeyDown = ({ key }) => {
-    if (key !== 'Enter') return;
-    handleAddTodo();
-  };
+  const handleAddTodo = useCallback(() => {
+    if (textTodo.length < 3) return;
+    dispatch(addTodo(textTodo));
+    setTextTodo('');
+  });
 
   return (
-    <div className="input-container">
+    <form
+      className="input-container"
+      onSubmit={e => {
+        e.preventDefault();
+        handleAddTodo();
+      }}
+    >
       <input
         className="input-field"
         type="text"
-        value={text}
+        value={textTodo}
         placeholder="Add todo"
-        onChange={({ target }) => setText(target.value)}
-        onKeyDown={handleKeyDown}
+        onChange={({ target }) => setTextTodo(target.value)}
       />
-      <button className="input-filed__submit" onClick={handleClick}>
+      <Button className="input-filed__submit" onAction={() => handleAddTodo()}>
         Enter
-      </button>
-    </div>
+      </Button>
+    </form>
   );
 };

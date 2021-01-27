@@ -1,18 +1,34 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   deleteAllTodo,
   deleteCompletedTodo,
 } from '../store/action-creators/todosActions';
+import {
+  getNumOfAllTOdos,
+  getNumOfCompletedTOdos,
+} from '../store/selectors/selectors';
 import { Button } from './Button';
 
 export const BottomClearBtn = () => {
   const dispatch = useDispatch();
+  const numOfTodos = useSelector(getNumOfAllTOdos);
+  const numOfCompletedTodos = useSelector(getNumOfCompletedTOdos);
 
   return (
     <div className="clear-container">
-      <Button onAction={() => dispatch(deleteAllTodo())}>Delete all</Button>
-      <Button onAction={() => dispatch(deleteCompletedTodo())}>
+      <Button
+        onAction={numOfTodos === 0 ? null : () => dispatch(deleteAllTodo())}
+      >
+        Delete all
+      </Button>
+      <Button
+        onAction={
+          numOfCompletedTodos === 0
+            ? null
+            : () => dispatch(deleteCompletedTodo())
+        }
+      >
         Delete completed
       </Button>
     </div>
