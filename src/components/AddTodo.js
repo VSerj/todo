@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addTodo } from '../store/action-creators/todosActions';
@@ -8,12 +8,12 @@ export const AddTodo = () => {
   const [textTodo, setTextTodo] = useState('');
   const dispatch = useDispatch();
 
-  const handleAddTodo = useCallback(() => {
+  const handleAddTodo = () => {
     if (textTodo.length < 3) return;
     dispatch(addTodo(textTodo));
     setTextTodo('');
-  });
-
+  }
+  
   return (
     <form
       className="input-container"
