@@ -30,18 +30,16 @@ export const todosReducer = (state = todosState, action) => {
       ];
     }
     case TODOS_ALL_TODO_DEL: {
-      return state.length > 0 ? [] : state;
+      return [];
     }
     case TODOS_TODO_SORT_PENDING_FIRST: {
-      return [...state].sort((todoA, todoB) => {
-        return todoA.completed - todoB.completed;
-      });
+      return [...state].sort((a, b) => a.completed - b.completed);
     }
     case TODOS_COMPLETED_TODO_DEL: {
-      // return state.filter(todo => !todo.completed);
-      return state.filter(todo => todo.completed).length > 0 // ist bad?
-        ? state.filter(todo => !todo.completed)
-        : state;
+      return state.filter(todo => !todo.completed);
+      // return state.filter(todo => todo.completed).length > 0 // ist bad?
+      //   ? state.filter(todo => !todo.completed)
+      //   : state;
     }
     case TODOS_TODO_COMPLETED: {
       return state.map(todo => {
