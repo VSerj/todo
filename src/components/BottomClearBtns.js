@@ -10,7 +10,7 @@ import {
 } from '../store/selectors/selectors';
 import { Button } from './Button';
 
-export const BottomClearBtn = () => {
+export const BottomClearBtns = () => {
   const dispatch = useDispatch();
   const numOfTodos = useSelector(getNumOfAllTOdos);
   const numOfCompletedTodos = useSelector(getNumOfCompletedTOdos);

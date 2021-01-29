@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import { getVisibleTodos } from '../store/selectors/selectors';
-import { TodoItem } from './TodoItem';
+import { TodoItem } from './TodoItem/TodoItem';
 
 export const TodoList = () => {
   const todos = useSelector(getVisibleTodos);

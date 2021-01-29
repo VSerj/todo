@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ACTIVE_FILTER } from '../store/constants';
-import { changeFilter } from '../store/action-creators/filterActions';
-import { getFilter, getNumOfAllTOdos } from '../store/selectors/selectors';
-import { Button } from './Button';
-import { sortPendingFirst } from '../store/action-creators/todosActions';
+import { ACTIVE_FILTER } from '../../store/constants';
+import { changeFilter } from '../../store/action-creators/filterActions';
+import { getFilter, getNumOfAllTOdos } from '../../store/selectors/selectors';
+import { Button } from '../Button';
+import { sortPendingFirst } from '../../store/action-creators/todosActions';
+import s from './filterBtnAll.module.css';
 
 export const FilterBtnAll = () => {
   const dispatch = useDispatch();
@@ -14,8 +15,8 @@ export const FilterBtnAll = () => {
   return (
     <div className="wrapper-filter-btn">
       <Button
-        className={`filter-btn filter-btn--all ${
-          filter === ACTIVE_FILTER.all ? 'isActive' : ''
+        className={`filter-btn ${s.btn} ${
+          filter === ACTIVE_FILTER.all ? s.isActive : ''
         }`}
         onAction={() => dispatch(changeFilter('all'))}
       >
