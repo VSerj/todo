@@ -1,0 +1,10 @@
+.btn {
+  border-color: rgb(173, 103, 219);
+  color: rgb(163, 106, 199);
+}
+
+.isActive {
+  background-color: rgb(173, 103, 219);
+  box-shadow: 0 0 5px rgb(173, 103, 219);
+  color: rgb(255, 255, 255);
+}

@@ -1,0 +1,75 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.text {
+  font-size: 2rem;
+  flex: 0 0 80%;
+  overflow-wrap: anywhere;
+  color: rgb(44, 44, 44);
+}
+
+.completed .text {
+  text-decoration: line-through;
+  color: rgb(187, 187, 187);
+}
+
+.time {
+  padding: 0 1rem;
+  color: rgb(163, 163, 163);
+}
+
+.completed .time {
+  color: rgb(202, 202, 202);
+}
+
+.btnCheck {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(87, 102, 236);
+  min-width: 20px;
+  max-width: 20px;
+  height: 20px;
+  transition: all 0.3s;
+  font-size: 1.5rem;
+}
+
+.btnCheck:hover {
+  border: 3px solid rgb(87, 102, 236);
+}
+
+.completed .btnCheck {
+  border: 2px solid rgb(187, 187, 187);
+}
+
+.completed .btnCheck:hover {
+  border: 2px solid rgb(144, 153, 236);
+}
+
+.btnDelete {
+  margin: 0 0 0 0.2rem;
+  font-size: 1.8rem;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.btnDelete:hover {
+  background-color: rgba(255, 167, 193, 0.4);
+}
+
+@media screen and (max-width: 750px) {
+  .text {
+    flex: 0 0 75%
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .text {
+    flex: 0 0 65%
+  }
+}

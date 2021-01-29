@@ -1,15 +1,17 @@
 import { AddTodo } from './components/AddTodo';
 import { BottomClearBtn } from './components/BottomClearBtn';
-import { FilterBtnAll } from './components/FilterBtnAll';
-import { FilterBtnCompleted } from './components/FilterBtnCompleted';
-import { FilterBtnPending } from './components/FilterBtnPending';
+import { FilterBtnAll } from './components/FilterBtnAll/FilterBtnAll';
+import { FilterBtnCompleted } from './components/FilterBtnCompleted/FilterBtnCompleted';
+import { FilterBtnPending } from './components/FilterBtnPending/FilterBtnPending';
+import { LoadFakeTodos } from './components/LoadFakeTOdos/LoadFakeTodos';
 import { TodoList } from './components/TodoList';
 
 export const TodoApp = () => {
   return (
     <>
-      <header>
+      <header className="header">
         <h1>TODO</h1>
+        <LoadFakeTodos />
       </header>
       <main className="todo-body">
         <div className="filter-container">

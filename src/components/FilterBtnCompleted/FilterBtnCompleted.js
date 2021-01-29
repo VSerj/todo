@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeFilter } from '../store/action-creators/filterActions';
-import { ACTIVE_FILTER } from '../store/constants';
+import { changeFilter } from '../../store/action-creators/filterActions';
+import { ACTIVE_FILTER } from '../../store/constants';
 import {
   getFilter,
   getNumOfCompletedTOdos,
-} from '../store/selectors/selectors';
-import { Button } from './Button';
+} from '../../store/selectors/selectors';
+import { Button } from '../Button';
+import s from './filterBtnCompleted.module.css';
 
 export const FilterBtnCompleted = () => {
   const dispatch = useDispatch();
@@ -15,8 +16,8 @@ export const FilterBtnCompleted = () => {
 
   return (
     <Button
-      className={`filter-btn filter-btn--completed ${
-        filter === ACTIVE_FILTER.completed ? 'isActive' : ''
+      className={`filter-btn ${s.btn} ${
+        filter === ACTIVE_FILTER.completed ? s.isActive : ''
       }`}
       onAction={() => dispatch(changeFilter('completed'))}
     >
