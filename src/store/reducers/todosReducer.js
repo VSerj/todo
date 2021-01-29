@@ -1,4 +1,5 @@
 import {
+  TODOS_ADD_FETCING_TODOS,
   TODOS_ALL_TODO_DEL,
   TODOS_COMPLETED_TODO_DEL,
   TODOS_TODO_ADD,
@@ -7,7 +8,10 @@ import {
   TODOS_TODO_SORT_PENDING_FIRST,
 } from '../constants';
 
-let idTodoCounter = 1;
+// let idTodoCounter = 1;
+const makeIdTodoGenerator = (idTodoCounter = 1) => () => (idTodoCounter += 1);
+
+export const setIdTodo = makeIdTodoGenerator();
 
 const todosState = [
   {
@@ -23,11 +27,14 @@ export const todosReducer = (state = todosState, action) => {
       return [
         ...state,
         {
-          id: idTodoCounter++,
+          id: setIdTodo(),
           text: action.payload,
           completed: false,
         },
       ];
+    }
+    case TODOS_ADD_FETCING_TODOS: {
+      return [...state, ...action.payload];
     }
     case TODOS_ALL_TODO_DEL: {
       return [];

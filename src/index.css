@@ -97,7 +97,7 @@ main {
   margin: 0 auto;
   max-width: 880px;
   padding: 0 1rem;
-  grid-template-rows: min-content min-content 1fr 1fr;
+  grid-template-rows: min-content min-content 1fr min-content;
 }
 
 button + button {
@@ -139,6 +139,7 @@ button + button {
   top: 30%;
   left: 0;
   margin: 0;
+  /* width: 100%; */
   padding: 1.2rem 0.2rem 0.1rem 0.2rem;
   border-radius: 0 0 12px 12px;
   background-color: rgb(139, 168, 185);
@@ -189,7 +190,7 @@ button + button {
 
 /* clear */
 .clear-container {
-  padding: 2.5rem 0 0;
+  padding: 2.5rem 0 2.5rem;
   text-align: center;
   color: rgb(207, 113, 143);
 }
