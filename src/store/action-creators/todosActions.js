@@ -5,11 +5,17 @@ import {
   TODOS_TODO_COMPLETED,
   TODOS_TODO_DEL,
   TODOS_TODO_SORT_PENDING_FIRST,
+  TODOS_ADD_FETCING_TODOS,
 } from '../constants';
 
 export const addTodo = text => ({
   type: TODOS_TODO_ADD,
   payload: text,
+});
+
+export const addFenchingTodos = todos => ({
+  type: TODOS_ADD_FETCING_TODOS,
+  payload: todos,
 });
 
 export const completedTodo = id => ({
