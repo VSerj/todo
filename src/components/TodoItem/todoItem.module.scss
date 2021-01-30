@@ -1,3 +1,5 @@
+@import "../../_vars.scss";
+
 .item {
   display: flex;
   justify-content: space-between;
@@ -9,12 +11,12 @@
   font-size: 2rem;
   flex: 0 0 80%;
   overflow-wrap: anywhere;
-  color: rgb(44, 44, 44);
+  color: $todo-textColor;
 }
 
 .time {
   padding: 0 1rem;
-  color: rgb(163, 163, 163);
+  color: rgba($todo-textColor, 0.7);
 }
 
 .btnCheck {
@@ -22,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgb(87, 102, 236);
+  border: 2px solid $main-color;
   min-width: 20px;
   max-width: 20px;
   height: 20px;
@@ -46,13 +48,15 @@
 .completed {
   .text {
     text-decoration: line-through;
-    color: rgb(187, 187, 187);
+    color: $copmpeted-todo-textColor;
   }
+
   .time {
-    color: rgb(202, 202, 202);
+    color: rgba($copmpeted-todo-textColor, 0.8);
   }
+
   .btnCheck {
-    border: 2px solid rgb(187, 187, 187);
+    border: 2px solid $copmpeted-todo-textColor;
     &:hover {
       border: 2px solid rgb(144, 153, 236);
     }
@@ -61,12 +65,12 @@
 
 @media screen and (max-width: 750px) {
   .text {
-    flex: 0 0 75%
+    flex: 0 0 75%;
   }
 }
 
 @media screen and (max-width: 600px) {
   .text {
-    flex: 0 0 65%
+    flex: 0 0 65%;
   }
 }
