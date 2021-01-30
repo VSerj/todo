@@ -1,10 +1,12 @@
+@import "../../_vars";
+
 .btn {
   padding: 0.5rem 0;
   min-width: 9rem;
   max-width: 9rem;
   border-radius: 3px;
-  background-color: rgb(87, 102, 236);
+  background-color: $main-color;
   box-shadow: inset 0 0 5px 1px rgb(22, 34, 145);
-  color: rgb(255, 255, 255);
+  color: $main-textColor;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }

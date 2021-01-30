@@ -1,10 +1,12 @@
+@import "../../_vars";
+
 .btn {
-  border-color: rgb(173, 103, 219);
-  color: rgb(163, 106, 199);
+  border-color: $filterPending-color;
+  color: $filterPending-textColor;
 }
 
 .isActive {
-  background-color: rgb(173, 103, 219);
-  box-shadow: 0 0 5px rgb(173, 103, 219);
-  color: rgb(255, 255, 255);
+  background-color: $filterPending-color;
+  box-shadow: 0 0 5px $filterPending-color;
+  color: $secondary-color;
 }
