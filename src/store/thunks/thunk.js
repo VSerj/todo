@@ -6,18 +6,22 @@ import {
 import { addFenchingTodos } from '../action-creators/todosActions';
 import { setIdTodo } from '../reducers/todosReducer';
 
-const fetchFakeTodos = async (dispatch) => {
-  const response = await API.get();
-  const todos = response.data.map(({ title, completed }) => ({
-    id: setIdTodo(),
-    text: title,
-    completed,
-  }));
-  dispatch(addFenchingTodos(todos));
-  dispatch(changeFetchingStatusOff());
+const fetchFakeTodos = async dispatch => {
+  try {
+    const response = await API.get(); // елаю запрос либа axios
+    const todos = response.data.map(({ title, completed }) => ({
+      id: setIdTodo(),
+      text: title,
+      completed,
+    })); // перебираю массив на 200 обьектов, адаптирую под свою структуру данны
+    dispatch(addFenchingTodos(todos)); // дабавляю в стейт редакса
+    dispatch(changeFetchingStatusOff());  // даю знать, что загрузка завершена
+  } catch (error) {
+    dispatch(changeFetchingStatusOff());
+  }
 };
 
 export const loadFakeTodos = dispatch => {
-  dispatch(changeFetchingStatusOn());
+  dispatch(changeFetchingStatusOn()); // даю знать, что началась загрузка
   fetchFakeTodos(dispatch);
 };
