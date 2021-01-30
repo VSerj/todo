@@ -9,7 +9,7 @@ import { TodoList } from './components/TodoList';
 export const TodoApp = () => {
   return (
     <>
-      <header className="header"> 
+      <header className="header">
         <h1>TODO</h1>
         <LoadFakeTodos />
       </header>
