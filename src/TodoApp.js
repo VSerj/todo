@@ -1,10 +1,10 @@
-import { AddTodo } from './components/AddTodo';
-import { BottomClearBtns } from './components/BottomClearBtns';
+import { AddTodo } from './components/AddTodoForm/AddTodo';
+import { BottomClearBtns } from './components/BottomClearBtns/BottomClearBtns';
 import { FilterBtnAll } from './components/FilterBtnAll/FilterBtnAll';
 import { FilterBtnCompleted } from './components/FilterBtnCompleted/FilterBtnCompleted';
 import { FilterBtnPending } from './components/FilterBtnPending/FilterBtnPending';
 import { LoadFakeTodos } from './components/LoadFakeTodos/LoadFakeTodos';
-import { TodoList } from './components/TodoList';
+import { TodoList } from './components/TodoList/TodoList';
 
 export const TodoApp = () => {
   return (

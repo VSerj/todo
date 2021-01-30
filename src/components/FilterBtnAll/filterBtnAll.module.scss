@@ -1,3 +1,8 @@
+.wrapper {
+  position: relative;
+  margin-right: 1rem;
+}
+
 .btn {
   position: relative;
   border-color: rgb(87, 102, 236);
@@ -9,4 +14,35 @@
   background-color: rgb(87, 102, 236);
   box-shadow: 0 0 5px rgb(87, 102, 236);
   color: rgb(255, 255, 255);
+}
+
+.subBtn {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  padding: 1.2rem 1rem 0.2rem 1rem;
+  border-radius: 0 0 12px 12px;
+  background-color: rgb(139, 168, 185);
+  box-shadow: inset 0 0 2px 2px rgb(87, 102, 236);
+  color: rgb(255, 255, 255);
+  font-size: 1.1rem;
+  transition: background-color 0.3s, top 0.3s;
+
+  &Hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.wrapper:hover {
+  .subBtn {
+    top: 70%;
+    background-color: rgb(102, 191, 243);
+    &:hover {
+      background-color: rgb(154, 215, 250);
+    }
+  }
 }

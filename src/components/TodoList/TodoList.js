@@ -1,13 +1,14 @@
 import { useSelector } from 'react-redux';
 
-import { getVisibleTodos } from '../store/selectors/selectors';
-import { TodoItem } from './TodoItem/TodoItem';
+import { getVisibleTodos } from '../../store/selectors/selectors';
+import { TodoItem } from '../TodoItem/TodoItem';
+import s from './todoList.module.scss';
 
 export const TodoList = () => {
   const todos = useSelector(getVisibleTodos);
 
   return (
-    <ul className="todo-list">
+    <ul className={s.container}>
       {todos.length > 0
         ? todos.map(({ id, text, completed }) => (
             <TodoItem
