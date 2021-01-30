@@ -5,7 +5,7 @@ import { changeFilter } from '../../store/action-creators/filterActions';
 import { getFilter, getNumOfAllTOdos } from '../../store/selectors/selectors';
 import { Button } from '../Button';
 import { sortPendingFirst } from '../../store/action-creators/todosActions';
-import s from './filterBtnAll.module.css';
+import s from './filterBtnAll.module.scss';
 
 export const FilterBtnAll = () => {
   const dispatch = useDispatch();

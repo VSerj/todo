@@ -7,7 +7,7 @@ import {
   getNumOfPendingTOdos,
 } from '../../store/selectors/selectors';
 import { Button } from '../Button';
-import s from './filterBtnPending.module.css';
+import s from './filterBtnPending.module.scss';
 
 export const FilterBtnPending = () => {
   const dispatch = useDispatch();

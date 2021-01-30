@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { loadFakeTodos } from '../../store/thunks/thunk';
 import { Button } from '../Button';
-import s from './loadFakeTodos.module.css';
+import s from './loadFakeTodos.module.scss';
 
 export const LoadFakeTodos = () => {
   const dispatch = useDispatch();
