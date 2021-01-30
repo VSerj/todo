@@ -8,20 +8,20 @@ import { setIdTodo } from '../reducers/todosReducer';
 
 const fetchFakeTodos = async dispatch => {
   try {
-    const response = await API.get(); // елаю запрос либа axios
-    const todos = response.data.map(({ title, completed }) => ({
+    const { data } = await API.get();
+    const todos = data.map(({ title, completed }) => ({
       id: setIdTodo(),
       text: title,
       completed,
-    })); // перебираю массив на 200 обьектов, адаптирую под свою структуру данны
-    dispatch(addFenchingTodos(todos)); // дабавляю в стейт редакса
-    dispatch(changeFetchingStatusOff());  // даю знать, что загрузка завершена
+    }));
+    dispatch(addFenchingTodos(todos));
+    dispatch(changeFetchingStatusOff());
   } catch (error) {
     dispatch(changeFetchingStatusOff());
   }
 };
 
 export const loadFakeTodos = dispatch => {
-  dispatch(changeFetchingStatusOn()); // даю знать, что началась загрузка
+  dispatch(changeFetchingStatusOn());
   fetchFakeTodos(dispatch);
 };
