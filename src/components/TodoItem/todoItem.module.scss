@@ -12,18 +12,9 @@
   color: rgb(44, 44, 44);
 }
 
-.completed .text {
-  text-decoration: line-through;
-  color: rgb(187, 187, 187);
-}
-
 .time {
   padding: 0 1rem;
   color: rgb(163, 163, 163);
-}
-
-.completed .time {
-  color: rgb(202, 202, 202);
 }
 
 .btnCheck {
@@ -37,18 +28,9 @@
   height: 20px;
   transition: all 0.3s;
   font-size: 1.5rem;
-}
-
-.btnCheck:hover {
-  border: 3px solid rgb(87, 102, 236);
-}
-
-.completed .btnCheck {
-  border: 2px solid rgb(187, 187, 187);
-}
-
-.completed .btnCheck:hover {
-  border: 2px solid rgb(144, 153, 236);
+  &:hover {
+    background-color: rgba(87, 102, 236, 0.1);
+  }
 }
 
 .btnDelete {
@@ -56,10 +38,25 @@
   font-size: 1.8rem;
   border-radius: 2px;
   transition: all 0.3s;
+  &:hover {
+    background-color: rgba(255, 167, 193, 0.4);
+  }
 }
 
-.btnDelete:hover {
-  background-color: rgba(255, 167, 193, 0.4);
+.completed {
+  .text {
+    text-decoration: line-through;
+    color: rgb(187, 187, 187);
+  }
+  .time {
+    color: rgb(202, 202, 202);
+  }
+  .btnCheck {
+    border: 2px solid rgb(187, 187, 187);
+    &:hover {
+      border: 2px solid rgb(144, 153, 236);
+    }
+  }
 }
 
 @media screen and (max-width: 750px) {

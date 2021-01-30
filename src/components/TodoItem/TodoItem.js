@@ -6,7 +6,7 @@ import {
   completedTodo,
 } from '../../store/action-creators/todosActions';
 import { Button } from '../Button';
-import s from './todoItem.module.css';
+import s from './todoItem.module.scss';
 
 export const TodoItem = React.memo(({ text, completed, id }) => {
   const dispatch = useDispatch();

@@ -7,7 +7,7 @@ import {
   getNumOfCompletedTOdos,
 } from '../../store/selectors/selectors';
 import { Button } from '../Button';
-import s from './filterBtnCompleted.module.css';
+import s from './filterBtnCompleted.module.scss';
 
 export const FilterBtnCompleted = () => {
   const dispatch = useDispatch();
